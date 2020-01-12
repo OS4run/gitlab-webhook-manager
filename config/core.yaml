@@ -1,0 +1,51 @@
+gitlab:
+  - name: gitlab.customer.net
+    acceptToken: aUniqueTokenForThisGitlab
+    host:
+    token:
+
+notifications:
+  - name: teams
+    type: teams
+    url: https://............
+
+
+ticketing:
+  - name: servicenow
+    type: servicenow
+    auth:
+
+
+
+actions:
+  autolabels:
+    - name: Apply pending label to all opening mr for production
+      sourceBranch: master
+      projects:
+        - my-project/**/*
+      exclude:
+        - my-project/dontinclude
+      #gitlab: #nothing by default means everything
+      labels:
+        - "Instance Pending"
+
+  delivery:
+    - sourceBranch: master
+      projects:
+        - my-project/**/*
+      exclude:
+        - my-project/dontinclude
+      notifications:
+        - teams
+
+  ticketing:
+    - when: merge_request
+      sourceBranch: *
+      targetBranch: master
+      targetTicketing:
+        - servicenow
+      projects:
+        - my-project/**/*
+      exclude:
+        - my-project/dontinclude
+
