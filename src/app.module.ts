@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { WinstonModule } from 'nest-winston';
 import { PromModule } from '@digikare/nestjs-prom';
 import { WebhookController } from './controllers/webhook/webhook.controller';
+import { WebhookService } from './controllers/webhook/webhook.service';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { WebhookController } from './controllers/webhook/webhook.controller';
     AppController,
     WebhookController,
   ],
-  providers: [AppService],
+  providers: [AppService, WebhookService],
 })
 export class AppModule {
 }
