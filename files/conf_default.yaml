@@ -1,0 +1,14 @@
+global: {}
+
+
+servers:
+  - name: gitlab-com-a
+    token:  myFamousToken
+    apiToken: avaluetobefilled
+    url: https://gitlab.com
+
+  - name: gitlab-com-b
+    token:  aSecretTokenToBeValidated
+    apiToken: avaluetobefilled
+    url: https://gitlab.com
+

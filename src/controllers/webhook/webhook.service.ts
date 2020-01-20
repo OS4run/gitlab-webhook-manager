@@ -8,6 +8,7 @@ export class WebhookService {
   }
 
   dispatch(objectKind: string): string {
+    console.log(objectKind);
     return 'ok';
   }
 }
